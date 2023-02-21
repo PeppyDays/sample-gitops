@@ -1,4 +1,3 @@
-# Repository credentials, for using the same credentials in multiple repositories.
 apiVersion: v1
 kind: Secret
 metadata:
