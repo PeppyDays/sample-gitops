@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: platform
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Platform engineering team's project that supports all other projects
+  sourceRepos:
+  - '*'
+  destinations:
+  - name: in-cluster
+    server: https://kubernetes.default.svc
+  orphanedResources:
+    warn: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: sample
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Sample application deployment
+  sourceRepos:
+  - 'https://github.com/PeppyDays/sample-gitops.git'
+  destinations:
+  - name: in-cluster
+    server: https://kubernetes.default.svc
+    namespace: sample
+  namespaceResourceBlacklist:
+  - group: ''
+    kind: ResourceQuota
+  - group: ''
+    kind: LimitRange
+  - group: ''
+    kind: NetworkPolicy
+  orphanedResources:
+    warn: true

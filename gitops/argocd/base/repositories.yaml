@@ -1,0 +1,10 @@
+# Repository credentials, for using the same credentials in multiple repositories.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sample-gitops-repository
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  type: git
+  url: https://github.com/PeppyDays/sample-gitops.git
