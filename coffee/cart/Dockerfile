@@ -1,7 +1,7 @@
 FROM rust:1.67-slim AS build
 
-RUN USER=root cargo new --bin sample
-WORKDIR /sample
+RUN USER=root cargo new --bin application
+WORKDIR /application
 
 COPY ./Cargo.* ./
 RUN cargo build --release
@@ -11,6 +11,6 @@ RUN cargo build --release
 
 FROM debian:buster-slim AS run
 
-COPY --from=build /sample/target/release/sample /usr/local/bin/sample
+COPY --from=build /application/target/release/cart /usr/local/bin/cart
 
-CMD ["sample"]
+CMD ["cart"]

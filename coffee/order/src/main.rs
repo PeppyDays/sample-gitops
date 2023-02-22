@@ -3,7 +3,7 @@ use env_logger::Env;
 
 #[get("/hey")]
 async fn hey() -> impl Responder {
-    HttpResponse::Ok().body("hey there?")
+    HttpResponse::Ok().body("hey there? this is order!")
 }
 
 #[get("/env")]
