@@ -3,7 +3,7 @@ kind: AppProject
 metadata:
   name: platform
   finalizers:
-    - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argo-cd.argoproj.io
 spec:
   description: Platform engineering team's project that supports all other projects
   sourceRepos:
@@ -19,7 +19,7 @@ kind: AppProject
 metadata:
   name: sample
   finalizers:
-    - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argo-cd.argoproj.io
 spec:
   description: Sample application deployment
   sourceRepos:
