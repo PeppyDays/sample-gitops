@@ -18,15 +18,13 @@ spec:
   namespaceResourceWhitelist:
     - group: '*'
       kind: '*'
-  orphanedResources:
-    warn: true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: sample
   finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  - resources-finalizer.argocd.argoproj.io
 spec:
   description: Sample application deployment
   sourceRepos:
