@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: argo-cd
+namespace: argocd
 resources:
 - base/namespaces.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.6.2/manifests/install.yaml
@@ -12,12 +12,12 @@ patches:
 - path: overlays/argocd-server.yaml
   target:
     kind: Service
-    name: argo-cd-server
+    name: argocd-server
 - path: overlays/argocd-cm.yaml
   target:
       kind: ConfigMap
-      name: argo-cd-cm
+      name: argocd-cm
 - path: overlays/argocd-secret.yaml
   target:
       kind: Secret
-      name: argo-cd-secret
+      name: argocd-secret
