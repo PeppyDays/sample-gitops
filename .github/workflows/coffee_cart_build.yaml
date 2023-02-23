@@ -1,0 +1,32 @@
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+    - 'coffee/cart/**'
+    - '.github/workflows/coffee_cart_build.yaml'
+  push:
+    paths:
+    - 'coffee/cart/**'
+    - '.github/workflows/coffee_cart_build.yaml'
+
+name: Coffee Cart Build
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    name: Build Coffee Cart
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./coffee/cart
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Test
+      run: cargo test --verbose
+    - name: Build
+      run: cargo build --release --verbose
