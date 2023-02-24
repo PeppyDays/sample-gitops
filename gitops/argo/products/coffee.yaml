@@ -17,7 +17,7 @@ spec:
   project: platform
   source:
     repoURL: https://github.com/PeppyDays/sample-gitops.git
-    path: gitops/argo/products/products/coffee
+    path: gitops/argo/products/coffee
   syncPolicy:
     automated:
       allowEmpty: true
