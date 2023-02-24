@@ -6,3 +6,8 @@ data:
   users.anonymous.enabled: "false"
   passwordPattern: "^.{7,32}$"
   accounts.admin: apiKey
+  configManagementPlugins: |
+    - name: kustomize-build-with-helm
+      generate:
+        command: [ "sh", "-c" ]
+        args: [ "kustomize build --enable-helm" ]
