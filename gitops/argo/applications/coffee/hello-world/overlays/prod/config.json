@@ -3,7 +3,7 @@
   "userGivenName": "hello-world",
   "destNamespace": "coffee-prod",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "gitops/applications/coffee/hello-world/overlays/prod",
+  "srcPath": "gitops/argo/applications/coffee/hello-world/overlays/prod",
   "srcRepoURL": "https://github.com/PeppyDays/sample-gitops.git",
   "srcTargetRevision": "",
   "labels": null,
