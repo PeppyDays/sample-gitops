@@ -1,0 +1,11 @@
+{
+  "appName": "hello-world",
+  "userGivenName": "hello-world",
+  "destNamespace": "default",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "gitops/autopilot/apps/hello-world/overlays/sample",
+  "srcRepoURL": "https://github.com/PeppyDays/sample-gitops.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}

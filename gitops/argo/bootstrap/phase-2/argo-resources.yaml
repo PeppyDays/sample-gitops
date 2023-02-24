@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  labels:
+    app.kubernetes.io/name: argo-resources
+  name: argo-resources
+  namespace: argo
+spec:
+  destination:
+    namespace: argo
+    server: https://kubernetes.default.svc
+  ignoreDifferences:
+  - group: argoproj.io
+    jsonPointers:
+    - /status
+    kind: Application
+  project: platform
+  source:
+    repoURL: https://github.com/PeppyDays/sample-gitops.git
+    path: gitops/argo/bootstrap/argo-resources
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      selfHeal: true
+    syncOptions:
+    - allowEmpty=true
