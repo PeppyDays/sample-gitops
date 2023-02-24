@@ -1,9 +1,9 @@
 {
   "appName": "hello-world",
   "userGivenName": "hello-world",
-  "destNamespace": "default",
+  "destNamespace": "coffee-prod",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "gitops/autopilot/apps/hello-world/overlays/sample",
+  "srcPath": "gitops/applications/coffee/hello-world/overlays/prod",
   "srcRepoURL": "https://github.com/PeppyDays/sample-gitops.git",
   "srcTargetRevision": "",
   "labels": null,
