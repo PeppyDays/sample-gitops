@@ -58,7 +58,7 @@ spec:
   generators:
   - git:
       files:
-      - path: gitops/applications/coffee/**/prod/config.json
+      - path: gitops/argo/applications/coffee/**/prod/config.json
       repoURL: https://github.com/PeppyDays/sample-gitops.git
       requeueAfterSeconds: 20
       revision: ""
