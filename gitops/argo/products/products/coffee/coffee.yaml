@@ -4,6 +4,7 @@ kind: Kustomization
 helmCharts:
 - name: product
   releaseName: coffee-test
+  repo: ../charts
   valuesInline:
     product:
       name: coffee
@@ -11,6 +12,7 @@ helmCharts:
     env: test
 - name: product
   releaseName: coffee-prod
+  repo: ../charts
   valuesInline:
     product:
       name: coffee
