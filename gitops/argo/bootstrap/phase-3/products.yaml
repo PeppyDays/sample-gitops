@@ -19,7 +19,7 @@ spec:
     repoURL: https://github.com/PeppyDays/sample-gitops.git
     path: gitops/argo/products
     plugin:
-      name: kustomize-build-with-helm
+      name: kustomize
   syncPolicy:
     automated:
       allowEmpty: true
