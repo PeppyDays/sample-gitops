@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false
+    argocd.argoproj.io/sync-wave: "-5"
+    product: coffee
+    env: dev
+  name: coffee-dev
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false
+    argocd.argoproj.io/sync-wave: "-5"
+    product: coffee
+    env: dev
+  name: coffee-prod
