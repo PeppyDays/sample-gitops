@@ -15,5 +15,5 @@ metadata:
     argocd.argoproj.io/sync-options: Prune=false
     argocd.argoproj.io/sync-wave: "-5"
     product: coffee
-    env: dev
+    env: prod
   name: coffee-prod
