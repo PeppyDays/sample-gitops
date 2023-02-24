@@ -4,4 +4,5 @@ kind: Kustomization
 resources:
 - projects.yaml
 - argo-cd.yaml
+- argo-rollouts.yaml
 - cluster-resources.yaml

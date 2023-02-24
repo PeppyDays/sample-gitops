@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
 - cluster-resources/
 - argo-cd/
+- argo-rollouts/
