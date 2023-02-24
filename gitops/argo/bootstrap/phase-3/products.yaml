@@ -2,8 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   labels:
-    app.kubernetes.io/name: cluster-resources
-  name: cluster-resources
+    app.kubernetes.io/name: products
+  name: products
   namespace: argo
 spec:
   destination:
@@ -17,10 +17,11 @@ spec:
   project: platform
   source:
     repoURL: https://github.com/PeppyDays/sample-gitops.git
-    path: gitops/argo/bootstrap/phase-1/cluster-resources
+    path: gitops/argo/products
   syncPolicy:
     automated:
       allowEmpty: true
+      prune: true
       selfHeal: true
     syncOptions:
     - allowEmpty=true

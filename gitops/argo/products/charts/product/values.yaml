@@ -1,0 +1,5 @@
+product:
+  name: default
+  description: Default product
+
+env: default
