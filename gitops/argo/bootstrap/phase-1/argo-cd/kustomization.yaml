@@ -10,10 +10,6 @@ resources:
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.6.2/manifests/install.yaml
 
 patches:
-- path: overlays/argocd-server.yaml
-  target:
-    kind: Service
-    name: argocd-server
 - path: overlays/argocd-cm.yaml
   target:
     kind: ConfigMap
