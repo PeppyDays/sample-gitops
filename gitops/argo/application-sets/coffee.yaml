@@ -23,9 +23,8 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/managed-by: argocd-autopilot
         app.kubernetes.io/name: '{{ appName }}'
-      name: coffee-{{ userGivenName }}
+      name: '{{ userGivenName }}'
       namespace: argo
     spec:
       destination:
