@@ -1,2 +1,0 @@
-serviceAccount:
-  roleArn: arn:aws:iam::111111111111:role/ExternalSecretsOperatorRole

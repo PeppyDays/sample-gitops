@@ -4,13 +4,13 @@ on:
     branches:
     - '!main'
     paths:
-    - 'coffee/cart/**'
+    - 'products/coffee/cart/**'
     - '.github/workflows/coffee_cart_build.yaml'
   push:
     branches:
     - '!main'
     paths:
-    - 'coffee/cart/**'
+    - 'products/coffee/cart/**'
     - '.github/workflows/coffee_cart_build.yaml'
 
 name: Coffee Cart Test
