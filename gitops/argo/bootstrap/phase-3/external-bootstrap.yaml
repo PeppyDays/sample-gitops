@@ -2,27 +2,26 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   labels:
-    app.kubernetes.io/name: argo-cd
-  name: argo-cd
+    app.kubernetes.io/name: external-bootstrap
+  name: external-bootstrap
   namespace: argo
 spec:
+  project: platform
+  source:
+    repoURL: https://github.com/PeppyDays/sample-gitops.git
+    path: gitops/argo/bootstrap/phase-3/external-bootstrap
+    targetRevision: main
   destination:
-    namespace: argo
     server: https://kubernetes.default.svc
+    namespace: argo
   ignoreDifferences:
   - group: argoproj.io
     jsonPointers:
     - /status
     kind: Application
-  project: platform
-  source:
-    repoURL: https://github.com/PeppyDays/sample-gitops.git
-    path: gitops/argo/bootstrap/phase-1/argo-cd
-    targetRevision: main
   syncPolicy:
     automated:
       allowEmpty: true
-      prune: true
       selfHeal: true
     syncOptions:
     - allowEmpty=true
