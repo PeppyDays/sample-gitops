@@ -9,7 +9,7 @@ spec:
   generators:
   - git:
       files:
-      - path: gitops/argo/applications/coffee/**/dev/config.json
+      - path: gitops/argo/applications/coffee/**/config.json
       repoURL: https://github.com/PeppyDays/sample-gitops.git
       requeueAfterSeconds: 20
       revision: ""
@@ -29,7 +29,7 @@ spec:
       namespace: argo
     spec:
       destination:
-        namespace: '{{ destNamespace }}'
+        namespace: 'coffee-dev'
         server: '{{ destServer }}'
       ignoreDifferences:
       - group: argoproj.io
@@ -38,9 +38,9 @@ spec:
         kind: Application
       project: coffee
       source:
-        path: '{{ srcPath }}'
         repoURL: '{{ srcRepoURL }}'
-        targetRevision: '{{ srcTargetRevision }}'
+        path: '{{ srcPath }}/overlays/dev'
+        targetRevision: 'main'
       syncPolicy:
         automated:
           allowEmpty: true
@@ -58,7 +58,7 @@ spec:
   generators:
   - git:
       files:
-      - path: gitops/argo/applications/coffee/**/prod/config.json
+      - path: gitops/argo/applications/coffee/**/config.json
       repoURL: https://github.com/PeppyDays/sample-gitops.git
       requeueAfterSeconds: 20
       revision: ""
@@ -78,7 +78,7 @@ spec:
       namespace: argo
     spec:
       destination:
-        namespace: '{{ destNamespace }}'
+        namespace: 'coffee-prod'
         server: '{{ destServer }}'
       ignoreDifferences:
       - group: argoproj.io
@@ -87,9 +87,9 @@ spec:
         kind: Application
       project: coffee
       source:
-        path: '{{ srcPath }}'
         repoURL: '{{ srcRepoURL }}'
-        targetRevision: '{{ srcTargetRevision }}'
+        path: '{{ srcPath }}/overlays/prod'
+        targetRevision: 'main'
       syncPolicy:
         automated:
           allowEmpty: true
