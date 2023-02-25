@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: PruneLast=true
+    argocd.argoproj.io/sync-wave: "-2"
+  name: sample
+  namespace: argo
+spec:
+  description: Sample product
+  sourceRepos:
+  - '*'
+  destinations:
+  - server: https://kubernetes.default.svc
+    name: in-cluster
+    namespace: sample-*
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
