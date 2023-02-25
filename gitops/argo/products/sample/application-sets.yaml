@@ -39,7 +39,7 @@ spec:
       project: sample
       source:
         repoURL: '{{ srcRepoURL }}'
-        path: '{{ srcPath }}/overlays/dev'
+        path: '{{ srcPath }}'
         targetRevision: 'main'
         helm:
           valueFiles:
@@ -91,7 +91,7 @@ spec:
       project: sample
       source:
         repoURL: '{{ srcRepoURL }}'
-        path: '{{ srcPath }}/overlays/prod'
+        path: '{{ srcPath }}'
         targetRevision: 'main'
         helm:
           valueFiles:
