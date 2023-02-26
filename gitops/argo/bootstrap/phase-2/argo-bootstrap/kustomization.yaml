@@ -6,4 +6,3 @@ resources:
 - argo-cd.yaml
 - argo-rollouts.yaml
 - argo-resources.yaml
-- argo-clusters.yaml
