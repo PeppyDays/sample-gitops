@@ -1,6 +1,0 @@
-{
-  "appName": "guest-book",
-  "destServer": "https://kubernetes.default.svc",
-  "srcRepoURL": "https://github.com/PeppyDays/sample-gitops.git",
-  "srcPath": "gitops/argo/applications/sample/guest-book"
-}
