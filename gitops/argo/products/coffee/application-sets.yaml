@@ -6,31 +6,25 @@ metadata:
   name: coffee-dev
   namespace: argo
 spec:
+  goTemplate: true
   generators:
   - git:
-      files:
-      - path: gitops/argo/applications/coffee/**/config.json
       repoURL: https://github.com/PeppyDays/sample-gitops.git
+      revision: main
+      directories:
+      - path: gitops/argo/applications/coffee/*
       requeueAfterSeconds: 20
-      revision: ""
-      template:
-        metadata: {}
-        spec:
-          destination: {}
-          project: ""
-          source:
-            repoURL: ""
   syncPolicy: {}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: '{{ appName }}-dev'
-      name: '{{ appName }}-dev'
+        app.kubernetes.io/name: '{{ .path.basenameNormalized }}-dev'
+      name: '{{ .path.basenameNormalized }}-dev'
       namespace: argo
     spec:
       destination:
-        namespace: 'coffee-dev'
-        server: '{{ destServer }}'
+        server: https://kubernetes.default.svc
+        namespace: coffee-dev
       ignoreDifferences:
       - group: argoproj.io
         jsonPointers:
@@ -38,9 +32,9 @@ spec:
         kind: Application
       project: coffee
       source:
-        repoURL: '{{ srcRepoURL }}'
-        path: '{{ srcPath }}/overlays/dev'
-        targetRevision: 'main'
+        repoURL: https://github.com/PeppyDays/sample-gitops.git
+        path: '{{ .path.path }}/overlays/dev'
+        targetRevision: main
       syncPolicy:
         automated:
           allowEmpty: true
@@ -55,31 +49,25 @@ metadata:
   name: coffee-prod
   namespace: argo
 spec:
+  goTemplate: true
   generators:
   - git:
-      files:
-      - path: gitops/argo/applications/coffee/**/config.json
       repoURL: https://github.com/PeppyDays/sample-gitops.git
+      revision: main
+      directories:
+      - path: gitops/argo/applications/coffee/*
       requeueAfterSeconds: 20
-      revision: ""
-      template:
-        metadata: {}
-        spec:
-          destination: {}
-          project: ""
-          source:
-            repoURL: ""
   syncPolicy: {}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: '{{ appName }}-prod'
-      name: '{{ appName }}-prod'
+        app.kubernetes.io/name: '{{ .path.basenameNormalized }}-prod'
+      name: '{{ .path.basenameNormalized }}-prod'
       namespace: argo
     spec:
       destination:
-        namespace: 'coffee-prod'
-        server: '{{ destServer }}'
+        server: https://kubernetes.default.svc
+        namespace: coffee-prod
       ignoreDifferences:
       - group: argoproj.io
         jsonPointers:
@@ -87,9 +75,9 @@ spec:
         kind: Application
       project: coffee
       source:
-        repoURL: '{{ srcRepoURL }}'
-        path: '{{ srcPath }}/overlays/prod'
-        targetRevision: 'main'
+        repoURL: https://github.com/PeppyDays/sample-gitops.git
+        path: '{{ .path.path }}/overlays/prod'
+        targetRevision: main
       syncPolicy:
         automated:
           allowEmpty: true
