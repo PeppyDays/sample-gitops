@@ -1,8 +1,6 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  annotations:
-    managed-by: argocd.argoproj.io
   labels:
     argocd.argoproj.io/secret-type: cluster
   name: local-dev-cluster
@@ -16,8 +14,6 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
-  annotations:
-    managed-by: argocd.argoproj.io
   labels:
     argocd.argoproj.io/secret-type: cluster
   name: local-prod-cluster
