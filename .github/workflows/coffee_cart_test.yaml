@@ -31,4 +31,4 @@ jobs:
       with:
         fetch-depth: 0
     - name: Test
-      run: cargo test --verbose
+      run: cargo test
