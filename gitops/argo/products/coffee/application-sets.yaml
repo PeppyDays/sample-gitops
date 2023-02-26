@@ -22,24 +22,21 @@ spec:
       name: '{{ .path.basenameNormalized }}-dev'
       namespace: argo
     spec:
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: coffee-dev
-      ignoreDifferences:
-      - group: argoproj.io
-        jsonPointers:
-        - /status
-        kind: Application
       project: coffee
       source:
         repoURL: https://github.com/PeppyDays/sample-gitops.git
         path: '{{ .path.path }}/overlays/dev'
         targetRevision: main
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: coffee-dev
       syncPolicy:
         automated:
           allowEmpty: true
           prune: true
           selfHeal: true
+      syncOptions:
+      - allowEmpty=true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
@@ -65,21 +62,18 @@ spec:
       name: '{{ .path.basenameNormalized }}-prod'
       namespace: argo
     spec:
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: coffee-prod
-      ignoreDifferences:
-      - group: argoproj.io
-        jsonPointers:
-        - /status
-        kind: Application
       project: coffee
       source:
         repoURL: https://github.com/PeppyDays/sample-gitops.git
         path: '{{ .path.path }}/overlays/prod'
         targetRevision: main
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: coffee-prod
       syncPolicy:
         automated:
           allowEmpty: true
           prune: true
           selfHeal: true
+      syncOptions:
+      - allowEmpty=true

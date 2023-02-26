@@ -6,18 +6,14 @@ metadata:
   name: argo-rollouts
   namespace: argo
 spec:
-  destination:
-    namespace: argo
-    server: https://kubernetes.default.svc
-  ignoreDifferences:
-  - group: argoproj.io
-    jsonPointers:
-    - /status
-    kind: Application
   project: platform
   source:
     repoURL: https://github.com/PeppyDays/sample-gitops.git
     path: gitops/argo/bootstrap/phase-1/argo-rollouts
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argo
   syncPolicy:
     automated:
       allowEmpty: true

@@ -7,15 +7,15 @@ metadata:
   name: platform
   namespace: argo
 spec:
-  clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
   description: Platform engineering team's project that supports all other projects
+  sourceRepos:
+  - '*'
   destinations:
   - namespace: '*'
     server: '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
   namespaceResourceWhitelist:
   - group: '*'
     kind: '*'
-  sourceRepos:
-  - '*'
