@@ -30,10 +30,10 @@ jobs:
         registry: ghcr.io
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GHCR_TOKEN }}
-    - name: Build and Push Docker Image
-      uses: docker/build-push-action@v4
-      with:
-        context: .
-        file: ./Dockerfile
-        push: true
-        tags: ghcr.io/peppydays/coffee/cart:$GITHUB_SHA
+    - name: Build and Push
+      run: |
+        docker build -t cart .
+        docker tag cart ghcr.io/peppydays/coffee/cart:${GITHUB_SHA::7}
+        docker tag cart ghcr.io/peppydays/coffee/cart:latest
+        docker push ghcr.io/peppydays/coffee/cart:${GITHUB_SHA::7}
+        docker push ghcr.io/peppydays/coffee/cart:latest
