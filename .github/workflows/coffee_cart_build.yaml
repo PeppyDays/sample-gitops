@@ -36,4 +36,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/peppydays/sample-gitops/coffee-cart:${GITHUB_SHA}
+        tags: ghcr.io/peppydays/coffee/cart:${GITHUB_SHA}
