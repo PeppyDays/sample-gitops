@@ -32,6 +32,8 @@ jobs:
         password: ${{ secrets.GHCR_TOKEN }}
     - name: Build and Push
       run: |
+        echo $GITHUB_SHA
+        echo $GITHUB_SHA_SHORT
         docker build -t ghcr.io/peppydays/coffee/cart:$GITHUB_SHA_SHORT .
         docker build -t ghcr.io/peppydays/coffee/cart:latest .
         docker push ghcr.io/peppydays/coffee/cart:$GITHUB_SHA_SHORT
