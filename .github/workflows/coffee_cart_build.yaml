@@ -31,9 +31,19 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GHCR_TOKEN }}
     - name: Build and Push
-      run: |
-        docker build -t cart .
-        docker tag cart ghcr.io/peppydays/coffee/cart:${GITHUB_SHA::7}
-        docker tag cart ghcr.io/peppydays/coffee/cart:latest
-        docker push ghcr.io/peppydays/coffee/cart:${GITHUB_SHA::7}
-        docker push ghcr.io/peppydays/coffee/cart:latest
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: ./products/coffee/cart/Dockerfile
+        push: true
+        tags: |
+          ghcr.io/peppydays/coffee/cart:${GITHUB_SHA::7}
+          ghcr.io/peppydays/coffee/cart:latest
+#    - name: Build and Push
+#      run: |
+#        docker build -t cart .
+#        docker tag cart ghcr.io/peppydays/coffee/cart:${GITHUB_SHA::7}
+#        docker tag cart ghcr.io/peppydays/coffee/cart:latest
+#        docker push ghcr.io/peppydays/coffee/cart:${GITHUB_SHA::7}
+#        docker push ghcr.io/peppydays/coffee/cart:latest
+#    - name: Deploy to Dev
