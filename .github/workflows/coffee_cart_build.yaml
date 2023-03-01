@@ -33,7 +33,7 @@ jobs:
     - name: Build and Push
       uses: docker/build-push-action@v2
       with:
-        context: .
+        context: ./products/coffee/cart
         file: ./products/coffee/cart/Dockerfile
         push: true
         tags: |
