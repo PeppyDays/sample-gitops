@@ -37,7 +37,7 @@ jobs:
         file: ./products/coffee/cart/Dockerfile
         push: true
         tags: |
-          ghcr.io/peppydays/coffee/cart:${GITHUB_SHA::7}
+          ghcr.io/peppydays/coffee/cart:${{ github.sha }}
           ghcr.io/peppydays/coffee/cart:latest
 #    - name: Build and Push
 #      run: |
