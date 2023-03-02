@@ -45,4 +45,4 @@ jobs:
 
         git add kustomization.yaml
         git commit -m "Updated Coffee Cart image to ${{ github.sha }}"
-        git push origin main
+        git push
