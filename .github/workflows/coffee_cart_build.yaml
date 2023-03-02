@@ -22,8 +22,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
     - name: Log in to GitHub Container Registry
       uses: docker/login-action@v2
       with:
@@ -39,11 +37,7 @@ jobs:
         tags: |
           ghcr.io/peppydays/coffee/cart:${{ github.sha }}
           ghcr.io/peppydays/coffee/cart:latest
-#    - name: Build and Push
-#      run: |
-#        docker build -t cart .
-#        docker tag cart ghcr.io/peppydays/coffee/cart:${GITHUB_SHA::7}
-#        docker tag cart ghcr.io/peppydays/coffee/cart:latest
-#        docker push ghcr.io/peppydays/coffee/cart:${GITHUB_SHA::7}
-#        docker push ghcr.io/peppydays/coffee/cart:latest
-#    - name: Deploy to Dev
+    - name: Deploy to Dev
+      run: |
+        pushd ./gitops/argo/applications/coffee/cart/overlays/dev
+        kustomize edit set image ghcr.io/peppydays/coffee/cart:${{ github.sha }}

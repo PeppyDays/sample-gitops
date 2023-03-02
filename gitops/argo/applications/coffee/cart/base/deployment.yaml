@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: cart
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: cart
+    spec:
+      containers:
+      - image: cart
+        name: cart
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
