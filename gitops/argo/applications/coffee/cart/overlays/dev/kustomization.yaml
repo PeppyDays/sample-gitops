@@ -13,4 +13,4 @@ patches:
 
 images:
 - name: ghcr.io/peppydays/coffee/cart
-  newTag: 5d7e451b5302e74052c4679f2dc0ff8a287189d6
+  newTag: 9b71ed56259b7e1479f63ea234f6e88f29d1e9ad
