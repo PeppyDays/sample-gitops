@@ -16,6 +16,8 @@ jobs:
   build:
     name: Build Coffee Cart
     runs-on: ubuntu-latest
+    permission:
+      contents: write
     steps:
     - name: Checkout
       uses: actions/checkout@v3
