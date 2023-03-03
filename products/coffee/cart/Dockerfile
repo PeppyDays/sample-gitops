@@ -1,8 +1,5 @@
 FROM rust:1.67-slim AS build
 
-RUN rustup toolchain install nightly
-RUN cargo +nightly install -Z sparse-registry
-
 RUN USER=root cargo new --bin cart
 WORKDIR /cart
 
