@@ -13,4 +13,4 @@ patches:
 
 images:
 - name: ghcr.io/peppydays/coffee/order
-  newTag: f7a09b6c6469de0c235afa60443111f65cff9022
+  newTag: ab18bb84d4a034dfa0dd082666039d8dcefccdd8
