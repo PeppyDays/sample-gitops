@@ -1,0 +1,22 @@
+on:
+  workflow_dispatch:
+
+name: Coffee Order Deploy to Production
+
+jobs:
+  build:
+    name: Deploy Coffee Order
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to Production
+      run: |
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git config user.name "github-actions[bot]"
+        git pull origin main --rebase
+        
+        pushd ./gitops/argo/applications/coffee/order/overlays/prod
+        kustomize edit set image ghcr.io/peppydays/coffee/order:${{ github.sha }}
+        
+        git add kustomization.yaml
+        git commit -m "Updated Coffee Order image to ${{ github.sha }}"
+        git push origin main
