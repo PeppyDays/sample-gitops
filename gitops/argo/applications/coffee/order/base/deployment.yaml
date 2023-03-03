@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: order
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: order
+    spec:
+      containers:
+      - image: ghcr.io/peppydays/coffee/order
+        name: order
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
