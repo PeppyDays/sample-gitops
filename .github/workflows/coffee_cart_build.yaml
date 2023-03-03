@@ -36,7 +36,9 @@ jobs:
       with:
         context: ./products/coffee/cart
         file: ./products/coffee/cart/Dockerfile
-        platforms: linux/amd64,linux/arm64
+        platforms: linux/amd64
+#        platforms: linux/amd64,linux/arm64
+        ulimit: nofile=1048576:1048576
         push: true
         tags: |
           ghcr.io/peppydays/coffee/cart:${{ github.sha }}
