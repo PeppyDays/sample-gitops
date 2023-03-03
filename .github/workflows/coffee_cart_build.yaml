@@ -9,9 +9,6 @@ on:
 
 name: Coffee Cart Build
 
-env:
-  CARGO_TERM_COLOR: always
-
 jobs:
   build:
     name: Build Coffee Cart
@@ -47,11 +44,11 @@ jobs:
       run: |
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git config user.name "github-actions[bot]"
+        git pull origin main --rebase
         
         pushd ./gitops/argo/applications/coffee/cart/overlays/dev
         kustomize edit set image ghcr.io/peppydays/coffee/cart:${{ github.sha }}
         
-        git pull origin main --rebase
         git add kustomization.yaml
         git commit -m "Updated Coffee Cart image to ${{ github.sha }}"
         git push origin main

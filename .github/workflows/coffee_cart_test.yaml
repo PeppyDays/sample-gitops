@@ -15,9 +15,6 @@ on:
 
 name: Coffee Cart Test
 
-env:
-  CARGO_TERM_COLOR: always
-
 jobs:
   build:
     name: Test Coffee Cart
@@ -28,7 +25,5 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
     - name: Test
       run: cargo test
