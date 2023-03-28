@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: argo
 
 resources:
-- https://raw.githubusercontent.com/argoproj/argo-rollouts/v1.4.0/manifests/install.yaml
+- https://raw.githubusercontent.com/argoproj/argo-rollouts/v1.4.1/manifests/install.yaml
 
 patches:
 - target:
