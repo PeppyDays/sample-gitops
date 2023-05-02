@@ -20,3 +20,4 @@ kustomize build | kubectl apply -f -
 # no need to do something manually after deploying this
 kustomize build | kubectl apply -f -
 ```
+aa

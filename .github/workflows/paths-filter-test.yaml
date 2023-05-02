@@ -1,0 +1,29 @@
+on:
+  pull_request:
+    branches:
+    - "!main"
+
+name: Paths Filter Test
+
+jobs:
+  # JOB to run change detection
+  changes:
+    runs-on: ubuntu-latest
+    # Required permissions
+    permissions:
+      pull-requests: read
+    outputs:
+      # Expose matched filters as job 'packages' output variable
+      packages: ${{ steps.filter.outputs.changes }}
+    steps:
+    # For pull requests it's not necessary to checkout the code
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          root-read-me: ./README.md
+          gitops-read-me: ./gitops/argo/README.md
+    - name: Show changes
+      run: |
+        echo "root-read-me: ${{ steps.filter.outputs.root-read-me }}"
+        echo "gitops-read-me: ${{ steps.filter.outputs.gitops-read-me }}"
