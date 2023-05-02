@@ -1,7 +1,12 @@
 on:
   pull_request:
     branches:
-    - "arine/test"
+    - "arine/*"
+    types:
+    - opened
+    - synchronize
+    paths:
+    - "**"
 
 name: Paths Filter Test
 
