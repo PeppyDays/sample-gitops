@@ -30,3 +30,4 @@ jobs:
       run: |
         echo "root-read-me: ${{ steps.filter.outputs.root-read-me }}"
         echo "gitops-read-me: ${{ steps.filter.outputs.gitops-read-me }}"
+        echo "changes: ${{ steps.filter.outputs.changes }}"
