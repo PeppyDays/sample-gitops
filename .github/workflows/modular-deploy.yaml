@@ -38,9 +38,9 @@ jobs:
         echo "The following modules have changed: ${{ needs.detect-module-changes.outputs.changed-modules }}"
     - name: script
       run: |
-        DETECTED_MODULES='${{ needs.detect-module-changes.outputs.changed-modules }}'
-        MODULES=${DETECTED_MODULES//[\"\[\]]/}
-        IFS=',' read -ra MODULES <<< "$MODULES"
+        DETECTED_MODULES_CHANGE='${{ needs.detect-module-changes.outputs.changed-modules }}'
+        DETECTED_MODULES=${DETECTED_MODULES_CHANGE//[\"\[\]]/}
+        IFS=',' read -ra MODULES <<< "$DETECTED_MODULES"
         for module in "$(MODULES[@]}"; do
           echo "project/to/service/$module/dev/values.yaml"
         done
