@@ -35,7 +35,7 @@ jobs:
     steps:
     - name: get the output
       env:
-        DETECTED_MODULES_CHANGE: ${{ fromJson(needs.detect-module-changes.outputs.changed_modules) }}
+        DETECTED_MODULES_CHANGE: ${{ fromJson(needs.detect-module-changes.outputs.changed-modules) }}
       run: |
         echo "The following modules have changed: $DETECTED_MODULES_CHANGE"
     - name: script
