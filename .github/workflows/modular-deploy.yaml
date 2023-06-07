@@ -33,11 +33,11 @@ jobs:
       id-token: write
       contents: read
     steps:
-    - name: get the output
-      env:
-        DETECTED_MODULES_CHANGE: ${{ fromJson(needs.detect-module-changes.outputs.changed-modules) }}
-      run: |
-        echo "The following modules have changed: $DETECTED_MODULES_CHANGE"
+#    - name: get the output
+#      env:
+#        DETECTED_MODULES_CHANGE: ${{ fromJson(needs.detect-module-changes.outputs.changed-modules) }}
+#      run: |
+#        echo "The following modules have changed: $DETECTED_MODULES_CHANGE"
     - name: script
       run: |
         DETECTED_MODULES_CHANGE='${{ needs.detect-module-changes.outputs.changed-modules }}'
