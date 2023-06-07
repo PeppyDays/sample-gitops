@@ -1,7 +1,7 @@
 on:
-  push:
+  pull_request:
     branches:
-    - main
+    - arine/**
     paths:
     - 'products/coffee/cart/**'
     - 'products/coffee/order/**'
