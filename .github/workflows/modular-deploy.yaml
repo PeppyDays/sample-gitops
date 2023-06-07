@@ -43,3 +43,4 @@ jobs:
         IFS=',' read -ra MODULES <<< "$MODULES"
         for module in "$(MODULES[@]}"; do
           echo "project/to/service/$module/dev/values.yaml"
+        done
