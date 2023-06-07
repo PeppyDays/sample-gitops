@@ -39,10 +39,12 @@ jobs:
 #      run: |
 #        echo "The following modules have changed: $DETECTED_MODULES_CHANGE"
     - name: script
-      run: |
-        DETECTED_MODULES_CHANGE='${{ needs.detect-module-changes.outputs.changed-modules }}'
-        DETECTED_MODULES=${DETECTED_MODULES_CHANGE//[\"\[\]]/}
-        IFS=','
-        for module in $DETECTED_MODULES; do
-          echo "project/to/service/$module/dev/values.yaml"
-        done
+      uses: mikefarah/yq@master
+      with:
+        cmd: |
+          DETECTED_MODULES_CHANGE='${{ needs.detect-module-changes.outputs.changed-modules }}'
+          DETECTED_MODULES=${DETECTED_MODULES_CHANGE//[\"\[\]]/}
+          IFS=','
+          for module in $DETECTED_MODULES; do
+            echo "project/to/service/$module/dev/values.yaml"
+          done
